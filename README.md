@@ -1,1 +1,2 @@
-# A simple counter app.
+# A simple counter app
+### my first react app
