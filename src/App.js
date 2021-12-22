@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import Counter from "./components/Counter";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [times, setTimes] = useState(33);
+  function register(){
+    let no_times = Number(input);
+    console.log(no_times)
+    setTimes(no_times);
+    setInput("");
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter</h1>
+      <div className="input_field">
+        <input value={input} onChange={e => setInput(e.target.value)} className="no_of_times" type="text" />
+        <button onClick={register}>Submit</button>
+      </div>
+      <Counter times={times}/>
     </div>
   );
 }
